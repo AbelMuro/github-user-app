@@ -7,6 +7,18 @@ import { getSortedPostsData } from '../lib/posts';
 
 export default function Home({allPostsData}) {
 
+
+    const handleClick = () => {
+        fetch('/api')
+        .then((response) => {
+            return response.json();
+        })
+        .then((results) => {
+            console.log(results);
+        })
+    }
+
+
     return(
         <>
             <Head>
@@ -14,6 +26,9 @@ export default function Home({allPostsData}) {
                     My next.js app
                 </title>
             </Head>
+            <button onClick={handleClick}>
+                make fetch request
+            </button>
             <Layout>
                 <h1>
                    HEllo world
@@ -23,7 +38,7 @@ export default function Home({allPostsData}) {
                     height={144}
                     width={144}
                     alt={'Your Name'}
-                    prio
+                    priority
                     />
                     {allPostsData.map((post, i) => {
                         return(<Link key={i} href={`/${post.id}`}> CLick here</Link>)
