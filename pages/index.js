@@ -9,7 +9,7 @@ export default function Home({allPostsData}) {
 
 
     const handleClick = () => {
-        fetch('/api')
+        fetch('/api/firstEndpoint')
         .then((response) => {
             return response.json();
         })
