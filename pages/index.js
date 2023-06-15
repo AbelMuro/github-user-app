@@ -1,9 +1,11 @@
 import Image from 'next/image';
+import Link from 'next/link'
 import Head from 'next/head';
 import Layout from '../components/layout';
+import { getSortedPostsData } from '../lib/posts';
 
 
-export default function Home({data}) {
+export default function Home({allPostsData}) {
 
     return(
         <>
@@ -23,15 +25,19 @@ export default function Home({data}) {
                     alt={'Your Name'}
                     prio
                     />
+                    {allPostsData.map((post, i) => {
+                        return(<Link key={i} href={`/${post.id}`}> CLick here</Link>)
+                    })}
             </Layout>
         </>
     )
 }
 
 export async function getStaticProps() {
-    const data = 5;
-
+    const allPostsData = getSortedPostsData();
     return {
-        props : {data : data}
+      props: {
+        allPostsData
+      }
     }
-}
+  }

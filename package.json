@@ -26,6 +26,8 @@
     "react-dom": "^18.2.0"
   },
   "dependencies": {
-    "gray-matter": "^4.0.3"
+    "gray-matter": "^4.0.3",
+    "remark": "^14.0.3",
+    "remark-html": "^15.0.2"
   }
 }
