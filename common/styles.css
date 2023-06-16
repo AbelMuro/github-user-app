@@ -1,12 +1,12 @@
 @font-face {
     font-family: 'space mono';
-    src: url('./Fonts/SpaceMono-Regular.ttf');
+    src: url('../public/Fonts/SpaceMono-Regular.ttf');
     font-weight: 400;
 }
 
 @font-face {
     font-family: 'space mono';
-    src: url('./Fonts/SpaceMono-Bold.ttf');
+    src: url('../public/Fonts/SpaceMono-Bold.ttf');
     font-weight: 700;
 }
 
