@@ -1,0 +1,15 @@
+.container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 69px;
+    border-radius: 15px;
+}
+
+.container.light {
+    background-color: #FEFEFE;
+}
+
+.container.dark {
+    background-color:  #1E2A47;
+}

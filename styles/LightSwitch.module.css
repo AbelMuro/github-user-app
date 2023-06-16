@@ -15,6 +15,10 @@
     color: #697C9A;
 }
 
+.currentTheme.dark {
+    color: white;
+}
+
 .currentThemeIcon{
     mask-repeat: no-repeat;
     -webkit-mask-repeat: no-repeat;

@@ -8,3 +8,10 @@
     flex-direction: column;
     gap: 24px;
 }
+
+
+@media(max-width: 800px) {
+    .container{
+        width: 90%;
+    }
+}

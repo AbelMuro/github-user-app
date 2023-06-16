@@ -9,3 +9,11 @@
     line-height: 38.51px;
     font-weight: 700;
 }
+
+.logo.light {
+    color: #222731;
+}
+
+.logo.dark {
+    color: white
+}
