@@ -13,7 +13,7 @@ export default function LightSwitch() {
 
 
     return(
-        <section className={styles.container}>
+        <section className={styles.container} onClick={handleClick}>
             <h1 className={theme ? 
                     [styles.currentTheme, styles.dark].join(' ') :
                     [styles.currentTheme, styles.light].join(' ')
@@ -21,9 +21,8 @@ export default function LightSwitch() {
                 {theme ? 'LIGHT' : 'DARK'}
             </h1>
             <div className={theme ? 
-                [styles.currentThemeIcon, styles.dark].join(' ') : 
-                [styles.currentThemeIcon, styles.light].join(' ')} 
-                onClick={handleClick}>
+                    [styles.currentThemeIcon, styles.dark].join(' ') : 
+                    [styles.currentThemeIcon, styles.light].join(' ')} >
             </div>
         </section>
     )

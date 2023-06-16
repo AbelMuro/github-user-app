@@ -4,6 +4,7 @@
     align-items: center;
     height: 69px;
     border-radius: 15px;
+    padding: 0px 10px 0px 32px
 }
 
 .container.light {
@@ -12,4 +13,39 @@
 
 .container.dark {
     background-color:  #1E2A47;
+}
+
+.submitButton{
+    width: 106px;
+    height: 50px;
+    background-color: #0079FF;
+    color: white;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: var(--fs-16);
+    font-weight: 700;
+    line-height: 23.7px;
+}
+
+.submitButton:hover{
+    background-color: #60ABFF;
+}
+
+.buttonContainer{
+    position: relative;
+}
+
+.errorMessage{
+    display: none;
+    position: absolute;
+    left: -116px;
+    top: 0px;
+    bottom: 0px;
+    margin: auto;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 22.22px;
+    color: #F74646;
+    height: 22px;
 }

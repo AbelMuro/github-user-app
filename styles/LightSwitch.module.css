@@ -2,6 +2,22 @@
     display: flex;
     gap: 16px;
     align-items: center;
+    cursor: pointer;
+}
+.container:hover .currentTheme.light {
+    color: #222731;
+}
+
+.container:hover .currentThemeIcon.light{
+    background-color: #222731;
+}
+
+.container:hover .currentTheme.dark {
+    color: #90A4D4;
+}
+
+.container:hover .currentThemeIcon.dark{
+    background-color: #90A4D4;
 }
 
 .currentTheme {
@@ -26,18 +42,14 @@
     -webkit-mask-size: 20px 20px;
     width: 20px;
     height: 20px;
-    background-color: #697C9A;
-    cursor: pointer;
 }
 
 .currentThemeIcon.light {
     mask-image: url('../public/Icons/icon-moon.svg');
+    background-color: #697C9A;
 }
 
 .currentThemeIcon.dark {
     mask-image: url('../public/Icons/icon-sun.svg');
-}
-
-.currentThemeIcon:hover{
-    background-color: #222731;
+    background-color: white;
 }
