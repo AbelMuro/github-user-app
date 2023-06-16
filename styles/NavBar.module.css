@@ -1,0 +1,11 @@
+.container{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.logo{
+    font-size: var(--fs-26);
+    line-height: 38.51px;
+    font-weight: 700;
+}

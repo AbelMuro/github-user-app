@@ -1,9 +1,9 @@
-import styles from './layout.module.css';
+import styles from '../styles/Layout.module.css';
 
 export default function Layout({children}) {
     return(
-        <div className={styles.container}>
+        <main className={styles.container}>
             {children}
-        </div>
+        </main>
     )
 }
