@@ -4,7 +4,7 @@ import { createContext, useState, useEffect} from 'react';
 export const ThemeContext = createContext();
 
 export default function MyApp({Component, pageProps}) {
-    const [theme, setTheme] = useState(false);      //false = light theme    true = dark theme
+    const [theme, setTheme] = useState(false);              //false = light theme    true = dark theme
     const [userdata, setUserdata] = useState(null);
 
     useEffect(() => {
@@ -21,6 +21,10 @@ export default function MyApp({Component, pageProps}) {
         }
             
     }, [theme])
+
+    useEffect(() => {
+        setTheme(window.matchMedia('(prefered-color-scheme: dark)').matches);
+    }, [])
 
     const value = {
         theme, setTheme, 

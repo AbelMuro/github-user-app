@@ -8,7 +8,6 @@ import { ThemeContext } from "../../pages/_app";
 function UserProfile() {
     const {theme, userdata} = useContext(ThemeContext);
     const months = useRef(['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'])
-    console.log(userdata);
 
     const changeStyles = (className) => {
         if(theme)
@@ -33,6 +32,21 @@ function UserProfile() {
         return location.split(',')[0];
     }
 
+    const formatLink = (link) => {
+        if(link.length <= 16) return link;
+
+        let newLink = '';
+
+        for(let i = 0; i <= 16; i++)
+            newLink += link[i];
+        
+        return newLink + '...';
+    }
+
+    const handleLink = (e) => {
+        e.preventDefault();
+    }
+
 
     return userdata ? 
         <section className={changeStyles(styles.container)}>
@@ -49,7 +63,7 @@ function UserProfile() {
                 {formatDate(userdata.created_at)}
             </h2>
             <p className={changeStyles(styles.userbio)}>
-                {userdata.bio}
+                {userdata.bio ? userdata.bio : 'This profile has no bio'}
             </p>
             <div className={changeStyles(styles.userFollowers_metadata)}>
                 <h2 className={changeStyles(styles.userFollowers_title)}>
@@ -74,25 +88,40 @@ function UserProfile() {
             <div className={styles.user_details}>
                 <div className={styles.user_detail}>
                     <div className={changeStyles(styles.icon)} style={userdata.location ? {} : {backgroundColor: 'rgba(75, 106, 155, 0.5)'}}></div>
-                    <p className={changeStyles(styles.data)} style={userdata.location ? {} : {color: 'rgba(75, 106, 155, 0.5)'}}> 
+                    <p 
+                        className={changeStyles(styles.data)} style={userdata.location ? {} : {color: 'rgba(75, 106, 155, 0.5)', cursor: 'not-allowed'}}> 
                         {userdata.location ? formatLocation(userdata.location) : 'Not Available'}
                     </p>
                 </div>
                 <div className={styles.user_detail}>
                     <div className={changeStyles(styles.icon)} style={userdata.twitter_username ? {} : {backgroundColor: 'rgba(75, 106, 155, 0.5)'}}></div>
-                    <p className={changeStyles(styles.data)} style={userdata.twitter_username ? {} : {color: 'rgba(75, 106, 155, 0.5)'}}> 
-                        {userdata.twitter_username ? userdata.twitter_username : 'Not Available'}
-                    </p>
+                    <a 
+                        className={changeStyles(styles.data)} 
+                        style={userdata.twitter_username ? {} : {color: 'rgba(75, 106, 155, 0.5)', cursor: 'not-allowed', textDecoration: 'none'}} 
+                        href={userdata.twitter_username ? `https://twitter.com/${userdata.twitter_username}` : ''} 
+                        onClick={userdata.twitter_username ? null : handleLink}
+                        target='_blank'> 
+                            {userdata.twitter_username ? userdata.twitter_username : 'Not Available'}
+                    </a>
                 </div>
                 <div className={styles.user_detail}>
                     <div className={changeStyles(styles.icon)} style={userdata.blog ? {} : {backgroundColor: 'rgba(75, 106, 155, 0.5)'}}></div>
-                    <a className={changeStyles(styles.data)} style={userdata.blog ? {} : {color: 'rgba(75, 106, 155, 0.5)'}}> 
-                        {userdata.blog ? userdata.blog : 'Not Available'}
+                    <a 
+                        className={changeStyles(styles.data)} 
+                        style={userdata.blog ? {} : {color: 'rgba(75, 106, 155, 0.5)', cursor: 'not-allowed', textDecoration: 'none'}} 
+                        href={userdata.blog ? userdata.blog : ''} 
+                        onClick={userdata.blog ? null : handleLink}
+                        target='_blank'
+                        > 
+                            {userdata.blog ? formatLink(userdata.blog) : 'Not Available'}
                     </a>
                 </div>
                 <div className={styles.user_detail}>
                     <div className={changeStyles(styles.icon)} style={userdata.company ? {} : {backgroundColor: 'rgba(75, 106, 155, 0.5)'}}></div>
-                    <p className={changeStyles(styles.data)} style={userdata.company ? {} : {color: 'rgba(75, 106, 155, 0.5)'}}> 
+                    <p 
+                        className={changeStyles(styles.data)}
+                        style={userdata.company ? {} : {color: 'rgba(75, 106, 155, 0.5)', cursor: 'not-allowed'}}
+                        > 
                         {userdata.company ? userdata.company : 'Not Available'}
                     </p>
                 </div>

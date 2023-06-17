@@ -49,3 +49,24 @@
     color: #F74646;
     height: 22px;
 }
+
+@media(max-width: 630px) {
+    .errorMessage{
+        left: -90px;
+        font-size: var(--fs-13);
+    }
+}
+
+@media(max-width: 600px){
+    .container{
+        padding: 0px 7px 0px 16px; 
+        height: 60px;       
+    }
+
+    .submitButton {
+        width: 84px;
+        height: 46px;
+        font-size: var(--fs-14);
+        line-height: 20.73px;
+    }
+}

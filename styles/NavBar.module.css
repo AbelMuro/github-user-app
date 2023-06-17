@@ -17,3 +17,10 @@
 .logo.dark {
     color: white
 }
+
+
+@media(max-width: 650px){
+    .container{
+        margin-bottom: 20px;
+    }
+}
