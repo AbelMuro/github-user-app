@@ -1,13 +1,20 @@
-import {memo, useContext, useRef} from 'react';
+import { memo, useContext, useRef } from 'react';
 import { ThemeContext } from '../../pages/_app';
 import Input from './Input';
 import styles from '../../styles/SearchBar.module.css';
 
 
-//i will need to make a fetch request to the github API in a useEffect
 function SearchBar() {
-    const {theme} = useContext(ThemeContext);
+    const {theme, setUserdata} = useContext(ThemeContext);
     const query = useRef();
+
+   const handleClick = () => {
+        const username = query.current.state;
+
+        fetch(`https://api.github.com/users/${username}`)
+            .then(response => response.json())
+            .then(data => setUserdata(data?.message ? null : data))
+   }
 
     return(
         <form className={theme ? 
@@ -15,7 +22,7 @@ function SearchBar() {
             [styles.container, styles.light].join(' ')}>
                 <Input ref={query}/>
             <fieldset className={styles.buttonContainer}>
-                <input type='submit' value='Search' className={styles.submitButton}/>
+                <input type='button' value='Search' className={styles.submitButton} onClick={handleClick}/>
                 <div className={styles.errorMessage}>
                     No results
                 </div>                

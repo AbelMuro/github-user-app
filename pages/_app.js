@@ -5,6 +5,7 @@ export const ThemeContext = createContext();
 
 export default function MyApp({Component, pageProps}) {
     const [theme, setTheme] = useState(false);      //false = light theme    true = dark theme
+    const [userdata, setUserdata] = useState(null);
 
     useEffect(() => {
         const body = document.querySelector('body');
@@ -21,9 +22,13 @@ export default function MyApp({Component, pageProps}) {
             
     }, [theme])
 
+    const value = {
+        theme, setTheme, 
+        userdata, setUserdata
+    }
 
     return (
-        <ThemeContext.Provider value={{theme, setTheme}}>
+        <ThemeContext.Provider value={value}>
             <Component {...pageProps}/> 
         </ThemeContext.Provider>
     )
