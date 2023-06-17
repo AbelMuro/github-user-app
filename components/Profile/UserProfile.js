@@ -2,6 +2,9 @@ import { useContext, useRef,memo } from "react";
 import styles from '../../styles/UserProfile.module.css';
 import { ThemeContext } from "../../pages/_app";
 
+
+//now i need to work on the responsiveness of this component
+
 function UserProfile() {
     const {theme, userdata} = useContext(ThemeContext);
     const months = useRef(['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'])
@@ -70,26 +73,26 @@ function UserProfile() {
             </div>
             <div className={styles.user_details}>
                 <div className={styles.user_detail}>
-                    <div className={changeStyles(styles.icon)}></div>
-                    <p className={styles.data}> 
+                    <div className={changeStyles(styles.icon)} style={userdata.location ? {} : {backgroundColor: 'rgba(75, 106, 155, 0.5)'}}></div>
+                    <p className={changeStyles(styles.data)} style={userdata.location ? {} : {color: 'rgba(75, 106, 155, 0.5)'}}> 
                         {userdata.location ? formatLocation(userdata.location) : 'Not Available'}
                     </p>
                 </div>
                 <div className={styles.user_detail}>
-                    <div className={changeStyles(styles.icon)}></div>
-                    <p className={styles.data}> 
+                    <div className={changeStyles(styles.icon)} style={userdata.twitter_username ? {} : {backgroundColor: 'rgba(75, 106, 155, 0.5)'}}></div>
+                    <p className={changeStyles(styles.data)} style={userdata.twitter_username ? {} : {color: 'rgba(75, 106, 155, 0.5)'}}> 
                         {userdata.twitter_username ? userdata.twitter_username : 'Not Available'}
                     </p>
                 </div>
                 <div className={styles.user_detail}>
-                    <div className={changeStyles(styles.icon)}></div>
-                    <p className={styles.data}> 
+                    <div className={changeStyles(styles.icon)} style={userdata.blog ? {} : {backgroundColor: 'rgba(75, 106, 155, 0.5)'}}></div>
+                    <a className={changeStyles(styles.data)} style={userdata.blog ? {} : {color: 'rgba(75, 106, 155, 0.5)'}}> 
                         {userdata.blog ? userdata.blog : 'Not Available'}
-                    </p>
+                    </a>
                 </div>
                 <div className={styles.user_detail}>
-                    <div className={changeStyles(styles.icon)}></div>
-                    <p className={styles.data}> 
+                    <div className={changeStyles(styles.icon)} style={userdata.company ? {} : {backgroundColor: 'rgba(75, 106, 155, 0.5)'}}></div>
+                    <p className={changeStyles(styles.data)} style={userdata.company ? {} : {color: 'rgba(75, 106, 155, 0.5)'}}> 
                         {userdata.company ? userdata.company : 'Not Available'}
                     </p>
                 </div>
