@@ -38,7 +38,7 @@ function SearchBar() {
     }
 
     useEffect(() => {
-        fetchRequest('abelmuro')
+        fetchRequest('abelmuro');
     }, [])
 
     return(

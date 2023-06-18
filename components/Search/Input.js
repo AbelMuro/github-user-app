@@ -28,7 +28,7 @@ const Input = forwardRef(({clearErrorMessage}, ref) => {
                     [styles.input, styles.dark].join(' ') : 
                     [styles.input, styles.light].join(' ')}
                 />   
-            <img src={'/icons/icon-search.svg'} className={styles.searchIcon}/>         
+            <img src={'/Icons/icon-search.svg'} className={styles.searchIcon}/>         
         </fieldset>
 
     )
