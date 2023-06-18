@@ -32,16 +32,17 @@ function UserProfile() {
         return location.split(',')[0];
     }
 
-    const formatLink = (link) => {
-        if(link.length <= 16) return link;
+    const formatString = (str) => {
+        if(str.length <= 16) return str;
 
-        let newLink = '';
+        let newStr = '';
 
         for(let i = 0; i <= 16; i++)
-            newLink += link[i];
+            newStr += str[i];
         
-        return newLink + '...';
+        return newStr + '...';
     }
+
 
     const handleLink = (e) => {
         e.preventDefault();
@@ -101,7 +102,7 @@ function UserProfile() {
                         href={userdata.twitter_username ? `https://twitter.com/${userdata.twitter_username}` : ''} 
                         onClick={userdata.twitter_username ? null : handleLink}
                         target='_blank'> 
-                            {userdata.twitter_username ? userdata.twitter_username : 'Not Available'}
+                            {userdata.twitter_username ? formatString(userdata.twitter_username) : 'Not Available'}
                     </a>
                 </div>
                 <div className={styles.user_detail}>
@@ -113,7 +114,7 @@ function UserProfile() {
                         onClick={userdata.blog ? null : handleLink}
                         target='_blank'
                         > 
-                            {userdata.blog ? formatLink(userdata.blog) : 'Not Available'}
+                            {userdata.blog ? formatString(userdata.blog) : 'Not Available'}
                     </a>
                 </div>
                 <div className={styles.user_detail}>
@@ -122,7 +123,7 @@ function UserProfile() {
                         className={changeStyles(styles.data)}
                         style={userdata.company ? {} : {color: 'rgba(75, 106, 155, 0.5)', cursor: 'not-allowed'}}
                         > 
-                        {userdata.company ? userdata.company : 'Not Available'}
+                        {userdata.company ? formatString(userdata.company) : 'Not Available'}
                     </p>
                 </div>
             </div>
