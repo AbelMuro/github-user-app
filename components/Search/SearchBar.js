@@ -4,7 +4,7 @@ import Input from './Input';
 import styles from '../../styles/SearchBar.module.css';
 
 
-function SearchBar() {
+function SearchBar({initialData}) {
     const {theme, setUserdata} = useContext(ThemeContext);
     const query = useRef();
     const errorMessageRef = useRef();
@@ -38,8 +38,9 @@ function SearchBar() {
     }
 
     useEffect(() => {
-        fetchRequest('abelmuro');
+        setUserdata(initialData);
     }, [])
+
 
     return(
         <form className={theme ? 
