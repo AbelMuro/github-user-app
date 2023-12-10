@@ -18,12 +18,9 @@ function UserProfile() {
 
     const formatDate = (date) => {
         const dateJoined = new Date(date);
-        let day = dateJoined.getDate();
-        let month = dateJoined.getMonth();
-        const year = dateJoined.getFullYear();
-
-        if(day.length == 1)
-            day = '0' + day;
+        let day = dateJoined.getUTCDate();
+        let month = dateJoined.getUTCMonth();
+        const year = dateJoined.getUTCFullYear();
 
         return `Joined ${day} ${months.current[month]} ${year}`
     }
@@ -110,7 +107,7 @@ function UserProfile() {
                     <a 
                         className={changeStyles(styles.data)} 
                         style={userdata.blog ? {} : {color: 'rgba(75, 106, 155, 0.5)', cursor: 'not-allowed', textDecoration: 'none'}} 
-                        href={userdata.blog ? userdata.blog : ''} 
+                        href={userdata.blog ? (userdata.blog).includes("http") ? userdata.blog : "http://" +userdata.blog : ''} 
                         onClick={userdata.blog ? null : handleLink}
                         target='_blank'
                         > 
@@ -133,4 +130,3 @@ function UserProfile() {
 }
 
 export default memo(UserProfile);
-
