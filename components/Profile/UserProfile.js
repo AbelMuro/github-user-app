@@ -107,7 +107,7 @@ function UserProfile() {
                     <a 
                         className={changeStyles(styles.data)} 
                         style={userdata.blog ? {} : {color: 'rgba(75, 106, 155, 0.5)', cursor: 'not-allowed', textDecoration: 'none'}} 
-                        href={userdata.blog ? (userdata.blog).includes("http") ? userdata.blog : "http://" +userdata.blog : ''} 
+                        href={userdata.blog ? userdata.blog.includes("http") ? userdata.blog : "http://" +userdata.blog : ''} 
                         onClick={userdata.blog ? null : handleLink}
                         target='_blank'
                         > 
